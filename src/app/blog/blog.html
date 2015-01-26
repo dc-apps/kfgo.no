@@ -1,0 +1,36 @@
+<section layout="row" layout-wrap>
+	<md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$media('gt-sm')">
+		<md-toolbar>
+			<h1 class="md-toolbar-tools">kfgo.no – blogg</h1>
+		</md-toolbar>
+		<md-content class="md-padding">
+			<md-list>
+				<md-item ng-repeat="entry in blog.entries">
+					<md-item-content>
+						<div class="md-tile-content">
+							<a href="#blog/{{entry}}">{{entry}}</a>
+						</div>
+					</md-item-content>
+				</md-item>
+			</md-list>		
+		</md-content>
+	</md-sidenav>
+	<md-button show-sm hide-gt-sm ng-click="blog.toggleMenu()">
+		<div><-</div>		
+	</md-button>
+	<md-content class="md-padding" flex ng-include="'blog-entries/' + blog.post + '.html'">
+	</md-content>
+</section>
+
+
+
+<!--
+		<md-list layout-sm="row">
+			<md-item ng-repeat="entry in blog.entries">
+				<md-item-content>
+					<div class="md-tile-content" ng-click="blog.content=entry+'.html'">
+						{{entry}}
+					</div>
+				</md-item-content>
+			</md-item>
+		</md-list>-->
