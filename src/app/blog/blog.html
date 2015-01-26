@@ -1,11 +1,19 @@
-<section layout="row" layout-wrap>
+<section layout="row" layout-wrap layout-fill>
+	<md-toolbar>
+		<h1 class="md-toolbar-tools">kfgo.no – blogg</h1>
+	</md-toolbar>
 	<md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$media('gt-sm')">
 		<md-toolbar>
-			<h1 class="md-toolbar-tools">kfgo.no – blogg</h1>
+			<div class="md-toolbar-tools">
+				<md-input-container>
+				  <label>Søk...</label>
+				  <input ng-model="blog.search">
+				</md-input-container>
+			</div>
 		</md-toolbar>
 		<md-content class="md-padding">
 			<md-list>
-				<md-item ng-repeat="entry in blog.entries">
+				<md-item ng-repeat="entry in blog.entries | filter:blog.search">
 					<md-item-content>
 						<div class="md-tile-content">
 							<a href="#blog/{{entry}}">{{entry}}</a>
